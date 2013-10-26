@@ -33,6 +33,7 @@ group :doc do
 end
 
 # Authentication
-gem 'devise'
+gem 'devise' 
 #Privileges
 gem 'cancan'
+gem 'role_model' # User roles
