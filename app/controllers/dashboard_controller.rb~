@@ -4,8 +4,6 @@ class DashboardController < ApplicationController
         @role = 'manager'
     elsif current_user.has_role? :employee
         @role = 'employee'
-    elsif current_user.has_role? :dept_chief
-        @role = 'dept_chief'
     end
   end
 end
