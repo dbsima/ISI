@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
+  # trebuie adaugate has_many/one, belongs_to
+  belongs_to :department
+  belongs_to :division
+  
+  # Roles
   include RoleModel
   
   roles_attribute :roles_mask
