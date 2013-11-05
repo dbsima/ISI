@@ -1,0 +1,3 @@
+<%= form_tag({:action => 'create', :controller => 'admin/users'}, :method => :post) %>
+<%= input_tag :user, 'name', :style=> 'width:420px' %>
+<%= submit_tag 'Save', :class => 'btn btn-primary' %>

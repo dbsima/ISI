@@ -1,0 +1,16 @@
+<table>
+    <tr>
+    <th>Intern id</th>
+    <th>Email</th>
+    <th>Job</th>
+    <th>Department</th>
+    <th>Division</th>
+    </tr>
+<% @users.each do |u| %>
+<tr>
+    <td><%= u.id %></td>
+    <td><%= u.email %></td>
+    
+</tr>
+<% end %>
+</table>
