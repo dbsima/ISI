@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131031090432) do
+ActiveRecord::Schema.define(version: 20131105205811) do
 
   create_table "departments", force: true do |t|
     t.string   "name"
@@ -41,9 +41,11 @@ ActiveRecord::Schema.define(version: 20131031090432) do
     t.datetime "updated_at"
     t.integer  "roles_mask"
     t.integer  "department_id"
+    t.string   "internal_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["internal_id"], name: "index_users_on_internal_id", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
