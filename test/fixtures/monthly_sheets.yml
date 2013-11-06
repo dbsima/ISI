@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  month: 2013-11-06
+  user_id: 1
+  status: MyString
+
+two:
+  month: 2013-11-06
+  user_id: 1
+  status: MyString
