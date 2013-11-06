@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131106122442) do
+ActiveRecord::Schema.define(version: 20131106122813) do
 
   create_table "audits", force: true do |t|
     t.string   "log_level"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20131106122442) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "daily_sheets", force: true do |t|
+    t.string   "status"
+    t.integer  "monthly_sheet_id"
+    t.string   "day"
+    t.string   "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
