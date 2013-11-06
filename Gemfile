@@ -37,3 +37,7 @@ gem 'devise'
 #Privileges
 gem 'cancan'
 gem 'role_model' # User roles
+
+group :development do
+   gem 'rails-erd'
+end
