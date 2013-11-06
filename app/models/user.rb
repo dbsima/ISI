@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   belongs_to :department
   belongs_to :division
   
+  has_many :monthly_sheets
+  has_many :tasks
+  
   # Roles
   include RoleModel
   
