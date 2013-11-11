@@ -16,14 +16,23 @@ class Admin::UsersController < Admin::AdminController
        email: par[:email], 
        password: par[:password],
        internal_id: par[:internal_id],
-       department_id: par[:department],
-       roles_mask: par[:role]
+       department_id: par[:department_id],
+       roles_mask: par[:roles_mask]
    )
 #     User.create! name: p
     redirect_to :admin_users
   end
 
   def edit
+     @user = User.find params.require('id')
+  end
+  
+  def update
+     @user = User.find params.require('id')
+     
+     @user.update_attributes params.require('user').permit(:first_name, :last_name, :department_id, :email, :internal_id, :roles_mask)
+     
+     redirect_to :admin_users, :alert => 'User data modified'
   end
   
   def destroy

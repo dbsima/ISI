@@ -1,4 +1,3 @@
-<%= form_tag({:action => 'create', :controller => 'admin/users'}, :method => :post) %>
 <%= label :user, 'Internal ID' %>
 <%= text_field :user, 'internal_id' %>
 <br />
@@ -18,9 +17,9 @@
 <%= text_field :user, 'division' %>
 <br />
 <%= label :user, 'Department' %>
-<%= text_field :user, 'department' %>
+<%= text_field :user, 'department_id' %>
 <br />
 <%= label :user, 'Role' %>
-<%= text_field :user, 'role' %>
+<%= text_field :user, 'roles_mask' %>
 <br />
 <%= submit_tag 'Save', :class => 'btn btn-primary' %>
