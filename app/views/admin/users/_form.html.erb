@@ -1,3 +1,26 @@
 <%= form_tag({:action => 'create', :controller => 'admin/users'}, :method => :post) %>
-<%= text_field_tag :user, 'name', :style=> 'width:420px' %>
+<%= label :user, 'Internal ID' %>
+<%= text_field :user, 'internal_id' %>
+<br />
+<%= label_tag :user, 'First Name' %>
+<%= text_field :user, 'first_name' %>
+<br />
+<%= label :user, 'Last Name' %>
+<%= text_field :user, 'last_name' %>
+<br />
+<%= label :user, 'Email' %>
+<%= text_field :user, 'email' %>
+<br />
+<%= label :user, 'Password' %>
+<%= text_field :user, 'password' %>
+<br />
+<%= label :user, 'Division' %>
+<%= text_field :user, 'division' %>
+<br />
+<%= label :user, 'Department' %>
+<%= text_field :user, 'department' %>
+<br />
+<%= label :user, 'Role' %>
+<%= text_field :user, 'role' %>
+<br />
 <%= submit_tag 'Save', :class => 'btn btn-primary' %>
