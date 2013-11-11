@@ -6,6 +6,7 @@
     <th>Department</th>
     <th>Division</th>
     <th>Role</th>
+    <th> </th>
     </tr>
 <% @users.each do |u| %>
 <tr>
@@ -13,7 +14,9 @@
     <td><%= u.email %></td>
     <td><%= u.department.name if u.department %></td>
     <td><%= u.division.name if u.division %> </td>
-    <th><%= u.roles.first %></td>
+    <td><%= u.roles.first %></td>
+    <td><%= link_to 'Edit', edit_admin_user_path(u.id) %><td/>
+    <td><%= link_to 'Delete', { action: :destroy, id: u.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     
 </tr>
 <% end %>

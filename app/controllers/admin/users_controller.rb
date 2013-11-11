@@ -25,4 +25,10 @@ class Admin::UsersController < Admin::AdminController
 
   def edit
   end
+  
+  def destroy
+     User.find(params.require('id')).destroy
+     
+     redirect_to :admin_users, :alert => 'User removed'
+  end
 end
