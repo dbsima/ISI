@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
   roles_attribute :roles_mask
   
   roles :admin, :manager, :division_chief, :dept_chief, :employee
+  
+  def division
+     department.division
+  end
 end
