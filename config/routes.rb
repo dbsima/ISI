@@ -1,4 +1,7 @@
 TimesheetManagement::Application.routes.draw do
+  get "divisions/index"
+  get "divisions/new"
+  get "divisions/edit"
   get "users/index"
   get "users/new"
   get "users/edit"
