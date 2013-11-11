@@ -2,14 +2,17 @@
     <tr>
     <th>Intern id</th>
     <th>Email</th>
-    <th>Job</th>
     <th>Department</th>
     <th>Division</th>
+    <th>Role</th>
     </tr>
 <% @users.each do |u| %>
 <tr>
-    <td><%= u.id %></td>
+    <td><%= u.internal_id %></td>
     <td><%= u.email %></td>
+    <td><%= u.department.name if u.department %></td>
+    <td><%= u.division.name if u.division %> </td>
+    <th><%= u.roles.first %></td>
     
 </tr>
 <% end %>
