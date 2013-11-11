@@ -8,7 +8,7 @@ class Admin::UsersController < Admin::AdminController
   end
 
   def create
-    par = params.require('user').permit(:first_name, :last_name, :email, :password, :internal_id, :division, :department, :role)
+    par = params.require('user').permit(:first_name, :last_name, :email, :password, :internal_id, :division, :department_id, :roles_mask)
     p par
     User.create!(
        first_name: par[:first_name], 
