@@ -20,6 +20,6 @@
 <%= select :user, 'department_id', Department.pluck(:name, :id) %>
 <br />
 <%= label :user, 'Role' %>
-<%= text_field :user, 'roles_mask' %>
+<%= select :user, 'roles_mask', User.ROLES %>
 <br />
 <%= submit_tag 'Save', :class => 'btn btn-primary' %>

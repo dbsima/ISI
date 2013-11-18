@@ -16,9 +16,14 @@ class User < ActiveRecord::Base
   
   roles_attribute :roles_mask
   
-  roles :admin, :manager, :division_chief, :dept_chief, :employee
+  ROLES = [:admin, :manager, :division_chief, :dept_chief, :employee]
+  roles ROLES
   
   def division
      department.division
+  end
+  
+  def self.ROLES
+     ROLES.map { |r| [r, User.mask_for(r)]}
   end
 end
