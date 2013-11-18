@@ -32,6 +32,10 @@ class Admin::UsersController < Admin::AdminController
      
      @user.update_attributes params.require('user').permit(:first_name, :last_name, :department_id, :email, :internal_id, :roles_mask)
      
+     @user.department.division_id = params.require('user').permit :division_id
+     @user.save!
+     
+#      if params.require('user').permit(:password)[:password]
      redirect_to :admin_users, :alert => 'User data modified'
   end
   
