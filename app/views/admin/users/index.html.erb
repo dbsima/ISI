@@ -2,6 +2,8 @@
 <table>
     <tr>
     <th>Intern id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
     <th>Email</th>
     <th>Department</th>
     <th>Division</th>
@@ -11,6 +13,8 @@
 <% @users.each do |u| %>
 <tr>
     <td><%= u.internal_id %></td>
+    <td><%= u.first_name %></td>
+    <td><%= u.last_name %></td>
     <td><%= u.email %></td>
     <td><%= u.department.name if u.department %></td>
     <td><%= u.division.name if u.division %> </td>
