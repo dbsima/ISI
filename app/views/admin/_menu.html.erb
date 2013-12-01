@@ -1,7 +1,9 @@
 <% content_for :menu do %>
 <ul class="nav">
-<li><a href="/">Home</a></li>
 <li class="active"><a href="/admin">Admin</a></li>
+<li><%= link_to 'Users', :admin_users %></li>
+<li><%= link_to 'Divisions', :admin_divisions %></li>
+<li><%= link_to 'Departments', :admin_departments %></li>
 <li> <%= link_to "Log Out", :destroy_user_session, :method => :delete %> </li>
 </ul>
 <% end %>
