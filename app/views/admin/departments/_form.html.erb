@@ -1,4 +1,7 @@
 <%= label :department, 'Name' %>
 <%= text_field :department, 'name' %>
 <br />
+<%= label :department, "Division" %>
+<%= select :department, 'division_id', Division.all.pluck(:name, :id) %>
+<br />
 <%= submit_tag 'Save', :class => 'btn btn-primary' %>

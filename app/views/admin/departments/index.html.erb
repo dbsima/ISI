@@ -1,14 +1,18 @@
+<%= render :partial => 'admin/menu' %>
+
 <%= link_to 'New Department', :new_admin_department %>
 <table>
     <tr>
     <th>ID</th>
     <th>Name</th>
+    <th>Division</th>
     <th> </th>
     </tr>
 <% @departments.each do |u| %>
 <tr>
     <td><%= u.id %></td>
     <td><%= u.name %></td>
+    <td><%= u.division.name if u.division %></td>
     <td><%= link_to 'Edit', edit_admin_department_path(u.id) %><td/>
     <td><%= link_to 'Delete', { action: :destroy, id: u.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     

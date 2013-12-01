@@ -1,4 +1,4 @@
-class Admin::DepartmentsController < ApplicationController
+class Admin::DepartmentsController < AdminController
   def index
      @departments = Department.all
   end
@@ -8,7 +8,7 @@ class Admin::DepartmentsController < ApplicationController
 
   def create
      begin
-	Department.create params.require('department').permit('name')
+	Department.create params.require('department').permit('name', 'division_id')
 	redirect_to :admin_departments, :alert => 'Department created'
      rescue ActionController::ParameterMissing
 	redirect_to :new_admin_department, :alert => 'Please input a department name'
@@ -21,7 +21,7 @@ class Admin::DepartmentsController < ApplicationController
   
   def update
      begin
-	Department.find(params.require('id')).update_attributes params.require('department').permit('name')
+	Department.find(params.require('id')).update_attributes params.require('department').permit('name', 'division_id')
 	redirect_to :admin_departments, :alert => 'Department updated'
      rescue ActionController::ParameterMissing
 	redirect_to :new_admin_department, :alert => 'Please input a department name'

@@ -1,4 +1,4 @@
-class Admin::DivisionsController < Admin::AdminController
+class Admin::DivisionsController < AdminController
   def index
      @divisions = Division.all
   end
