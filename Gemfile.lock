@@ -28,6 +28,8 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
+    bootstrap-sass (2.2.2.0)
+      sass (~> 3.2)
     builder (3.1.4)
     cancan (1.6.10)
     choice (0.1.6)
@@ -46,6 +48,10 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    flatui-rails (0.0.4)
+      bootstrap-sass (= 2.2.2)
+      railties (>= 3.1)
+      sass-rails (>= 3.2.0)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.2)
@@ -135,6 +141,7 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 4.0.0)
   devise
+  flatui-rails
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.0)
