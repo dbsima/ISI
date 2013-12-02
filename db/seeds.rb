@@ -9,3 +9,8 @@
    AvailableActivities.create :name => a
 end
 
+div = Division.create! name: 'IT'
+department = Department.create! name: 'admin', division: div
+
+admin = User.create department: department, email: 'a@a.a', password: 'p0liSUXhardc0r3', first_name: 'Admin', last_name: 'Admin', roles_mask: 1
+
