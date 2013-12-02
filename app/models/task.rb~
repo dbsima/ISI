@@ -12,6 +12,6 @@ def start_time
 end
 
    def name
-        created_at.strftime("%H:%m")+ " " + description
+        created_at.hour.to_s + ':' + created_at.min.to_s + " " + description
   end
 end

@@ -8,6 +8,10 @@ class DashboardController < ApplicationController
         @role = 'dept_chief'
     end
     
-    @timesheets = DailySheet.all
+    @timesheets = Task.all
+  end
+
+  def new
+    
   end
 end

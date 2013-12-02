@@ -1,1 +1,9 @@
-<%= current_user.roles_mask %>
+<%= render :partial => 'layouts/menu' %>
+
+<%= @role %>
+
+<div align='left'>
+  <%= calendar @timesheets do |event| %>
+    <%= event.name %>
+  <% end %>
+</div>
