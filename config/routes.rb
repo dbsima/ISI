@@ -18,6 +18,11 @@ TimesheetManagement::Application.routes.draw do
     resources :users
     resources :divisions
     resources :departments
+    resources :audit, :only => [:index] do
+       collection do
+	 get 'set_level'
+       end
+    end
   end
   
   resources :admin, :only => [:index]
