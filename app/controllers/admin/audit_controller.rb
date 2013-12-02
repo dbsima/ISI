@@ -1,6 +1,6 @@
 class Admin::AuditController < ApplicationController
 	def set_level
-		new_level = params.require(:new_level)
+		new_level = params.require(:audit).require(:new_level)
 		a = Audit.first
 		a.log_level = new_level
 		a.save!
@@ -9,6 +9,6 @@ class Admin::AuditController < ApplicationController
 	end
   	
 	def index
-		@current_level = Audit.first
+		@current_level = Audit.first.log_level
   	end
 end

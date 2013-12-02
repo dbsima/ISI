@@ -1,2 +1,9 @@
-<h1>Admin::Audit#index</h1>
-<p>Find me in app/views/admin/audit/index.html.erb</p>
+<%= render :partial => 'admin/menu' %>
+
+Nivelul curent: <%= @current_level %>
+
+<%= form_tag({:action => 'set_level'}, :method => :post) %>
+<%= label :audit, 'Noul Nivel' %>
+<%= select :audit, 'log_level', Audit.levels %>
+<br />
+<%= submit_tag 'Save', :class => 'btn btn-primary' %>
