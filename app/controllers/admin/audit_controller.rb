@@ -9,6 +9,6 @@ class Admin::AuditController < ApplicationController
 	end
   	
 	def index
-		
+		@current_level = Audit.first
   	end
 end
