@@ -20,7 +20,7 @@ TimesheetManagement::Application.routes.draw do
     resources :departments
     resources :audit, :only => [:index] do
        collection do
-	 get 'set_level'
+	 post 'set_level'
        end
     end
   end
