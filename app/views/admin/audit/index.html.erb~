@@ -1,9 +1,0 @@
-<%= render :partial => 'admin/menu' %>
-
-Nivelul curent: <%= @current_level %>
-
-<%= form_tag({:action => 'set_level'}, :method => :post) %>
-<%= label :audit, 'Noul Nivel' %>
-<%= select :audit, 'log_level', Audit.levels, selected: @current_level %>
-<br />
-<%= submit_tag 'Save', :class => 'btn btn-primary' %>
