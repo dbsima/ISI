@@ -1,4 +1,5 @@
 TimesheetManagement::Application.routes.draw do
+  get "audit/index"
   get "departments/index"
   get "departments/new"
   get "departments/edit"
