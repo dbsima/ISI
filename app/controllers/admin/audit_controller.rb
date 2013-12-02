@@ -4,6 +4,8 @@ class Admin::AuditController < ApplicationController
 		a = Audit.first
 		a.log_level = new_level
 		a.save!
+		
+		redirect_to :admin_audit_index
 	end
   	
 	def index
