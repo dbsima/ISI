@@ -7,5 +7,7 @@ class DashboardController < ApplicationController
     elsif current_user.has_role? :dept_chief
         @role = 'dept_chief'
     end
+    
+    @timesheets = DailySheet.all
   end
 end
