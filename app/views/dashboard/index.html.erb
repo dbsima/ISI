@@ -4,9 +4,6 @@
 
 <div align='left'>
   <%= calendar @timesheets do |event| %>
-	 <div><%= event.title %></div>
-      <% else %>
-	 <div><%= link_to event.title, event %></div>
-      <% end %>
+    <%= event.name %> <br />
   <% end %>
 </div>
