@@ -11,14 +11,6 @@ class DashboardController < ApplicationController
        @ms = @user.monthly_sheets.find_by_month Date.today.at_beginning_of_month
     end
     
-    if current_user.has_role? :manager
-        @role = 'manager'
-    elsif current_user.has_role? :employee
-        @role = 'employee'
-    elsif current_user.has_role? :dept_chief
-        @role = 'dept_chief'
-    end
-    
     p @user
     @timesheets = @user.tasks
   end

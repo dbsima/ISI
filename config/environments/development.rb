@@ -27,6 +27,8 @@ TimesheetManagement::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   
+  config.log_level = :info
+  
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
