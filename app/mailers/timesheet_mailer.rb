@@ -9,6 +9,10 @@ class TimesheetMailer < ActionMailer::Base
   def submit(ms)
     @name = ms.user.first_name + ' ' + ms.user.last_name
     @link = 'http://' + dashboard_path(ms.id)
-    mail to: User.find(ms.user.department.chief_id).email, subject: 'Pontaj trimis spre aprobare'
+    Department.first.users.select  do |u|
+       if u.has_role? :dept_chief
+	 mail to: u.email, subject: 'Pontaj trimis spre aprobare'
+       end
+    end
   end
 end
