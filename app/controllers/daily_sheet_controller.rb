@@ -34,4 +34,8 @@ class DailySheetController < ApplicationController
 
   def edit
   end
+  
+  def show
+     @ds = DailySheet.find_by_id params.require('id')
+  end
 end

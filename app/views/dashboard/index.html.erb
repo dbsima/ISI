@@ -4,6 +4,6 @@
 
 <div align='left'>
   <%= calendar @timesheets, :start_day => :monday do |event| %>
-    <%= event.name %> <br />
+    <%= link_to event.name, daily_sheet_path(event.daily_sheet.id) %> <br />
   <% end %>
 </div>
