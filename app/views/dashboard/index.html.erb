@@ -1,5 +1,10 @@
 <%= render :partial => 'layouts/menu' %>
-
+<div class='left-margin span12' style="padding-top: 30px">
+  <div align='right' style='margin-bottom: -50px;'>
+     <% if @ms %>
+      Status: <%= @ms.status %>
+     <% end %>
+  </div>
 <div align='left'>
   <%= calendar @timesheets, :start_day => :monday do |event| %>
     <%= link_to event.name, daily_sheet_path(event.daily_sheet.id) %> <br />
