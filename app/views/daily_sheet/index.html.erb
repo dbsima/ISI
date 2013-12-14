@@ -1,7 +1,7 @@
 <%= form_tag({:action => 'index'}, :method => :get) %>
 Data: <%= date_select :daily_sheet, 'date' %>
 <%= submit_tag 'Afisare/Completare', :class => 'btn', :style => 'margin-right: 10px;' %>
-
+<%= link_to 'New Task', :new_daily_sheet if @ds %>
 <table>
    <tr>
       <th>Activitate</th>
