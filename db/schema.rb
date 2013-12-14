@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131214101636) do
+ActiveRecord::Schema.define(version: 20131214205157) do
 
   create_table "audits", force: true do |t|
-    t.string   "log_level"
+    t.integer  "log_level",  limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
