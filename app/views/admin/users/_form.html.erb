@@ -1,25 +1,48 @@
-<%= label :user, 'Internal ID' %>
-<%= text_field :user, 'internal_id' %>
-<br />
-<%= label_tag :user, 'First Name' %>
-<%= text_field :user, 'first_name' %>
-<br />
-<%= label :user, 'Last Name' %>
-<%= text_field :user, 'last_name' %>
-<br />
-<%= label :user, 'Email' %>
-<%= text_field :user, 'email' %>
-<br />
-<%= label :user, 'Password' %>
-<%= text_field :user, 'password' %>
-<br />
-<%= label :user, 'Division' %>
-<%= select :user, 'division', Division.pluck(:name, :id) %>
-<br />
-<%= label :user, 'Department' %>
-<%= select :user, 'department_id', Department.pluck(:name, :id) %>
-<br />
-<%= label :user, 'Role' %>
-<%= select :user, 'roles_mask', User.ROLES %>
-<br />
-<%= submit_tag 'Save', :class => 'btn btn-primary' %>
+<table>
+  <tr>
+    <td style="width:700px;height:300px" valign="top">
+      <table width=100%>
+        <tr>
+          <td>
+            <div class="new">
+              <%= label :user, 'Internal ID' %>
+              <%= text_field :user, 'internal_id' %>
+              <br />
+              <%= label_tag :user, 'First Name' %>
+              <%= text_field :user, 'first_name' %>
+              <br />
+              <%= label :user, 'Last Name' %>
+              <%= text_field :user, 'last_name' %>
+              <br />
+              <%= label :user, 'Email' %>
+              <%= text_field :user, 'email' %>
+              <br />
+              <%= label :user, 'Password' %>
+              <%= text_field :user, 'password' %>
+              <br />
+              <%= label :user, 'Division' %>
+              <%= select :user, 'division', Division.pluck(:name, :id) %>
+              <br />
+              <%= label :user, 'Department' %>
+              <%= select :user, 'department_id', Department.pluck(:name, :id) %>
+              <br />
+              <%= label :user, 'Role' %>
+              <%= select :user, 'roles_mask', User.ROLES %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table style="width:400px;height:300px;background-color:#ECEEF0" align="center">
+        <tr>
+          <td  align="center">
+              <span class="glyphicon glyphicon-floppy-save"></span>
+            <br>
+            <%= submit_tag 'Save', :class => 'btn btn-primary' %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

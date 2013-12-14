@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TimesheetManagement</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
-  <link href="/css/flat-ui.css" rel="stylesheet">
-  <link href="shortcut icon" rel="images/favicon.ico">
-  
-</head>
-<body style="background-color:#69BC9C;width:1200px;height:700px;	margin:0px auto;">
-  
-<nav class="navbar navbar-default center" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <a class="navbar-brand" href="#">
-      <button type="button" class="btn btn-default btn-lg">
-        <span class="glyphicon glyphicon-user"></span>
-      </button>	ISI 
-    </a>
-  </div>
-  
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       <%= yield :menu %>
-  </div>
-  
-</nav>
-<%= request.fullpath.split('?')[0] %>
-<div class="center2">
-  <%= yield %> 
-</div>
-
-</body>
+  <head>
+    <title>TimesheetManagement</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/flat-ui.css" rel="stylesheet">
+    <link href="shortcut icon" rel="images/favicon.ico">
+    
+  </head>
+  <body style="background-color:#69BC9C;width:1200px;height:700px;	margin:0px auto;">
+    
+    <nav class="navbar navbar-default center" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-time"></span>
+          </button>	ISI 
+        </a>
+      </div>
+      
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <%= yield :menu %>
+      </div>
+      
+    </nav>
+    <hr>
+    <ol class="breadcrumb">
+      <li class="active"><%= request.fullpath.split('?')[0] %>
+      </li>
+    </ol>
+    <hr>
+    <div class="center2">
+      <%= yield %> 
+    </div>
+    
+  </body>
 </html>

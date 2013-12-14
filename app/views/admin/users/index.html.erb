@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <td style="width:800px;height:300px" valign="top">
+    <td style="width:900px;height:300px" valign="top">
       <table class="detalii_angajat" width="100%">
         <tr>
           <th>Intern id</th>
@@ -12,6 +12,7 @@
           <th>Department</th>
           <th>Division</th>
           <th>Role</th>
+          <th> </th>
           <th> </th>
         </tr>
         <% @users.each do |u| %>
@@ -23,9 +24,8 @@
           <td><%= u.department.name if u.department %></td>
           <td><%= u.division.name if u.division %> </td>
           <td><%= u.roles.first %></td>
-          <td><%= link_to 'Edit', edit_admin_user_path(u.id) %><td/>
+          <td><%= link_to 'Edit', edit_admin_user_path(u.id) %></td>
           <td><%= link_to 'Delete', { action: :destroy, id: u.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          
         </tr>
         <% end %>
       </table>
@@ -34,6 +34,15 @@
       <table>
         <tr>
           <td >
+            <a href="<%= new_admin_user_path %>" >
+              <button type="button" class="btn btn-default btn-lg">
+                <span class="glyphicon glyphicon-user"></span>
+              </button>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
             <%= link_to 'New User', :new_admin_user %>
           </td>
         </tr>
