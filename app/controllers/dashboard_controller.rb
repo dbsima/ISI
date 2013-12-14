@@ -29,7 +29,7 @@ class DashboardController < ApplicationController
     ms = MonthlySheet.find id.to_i
     ms.status = 'submitted'
     ms.save
-    
+    TimesheetMailer.submit(ms).deliver
     redirect_to :dashboard_index, :alert => 'Pontaj lunar trimis spre aprobare!'
   end
 end
