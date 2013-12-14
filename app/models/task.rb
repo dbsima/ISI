@@ -12,6 +12,6 @@ def start_time
 end
 
    def name
-        created_at.strftime("%H:%m")+ " " + description
+        number_of_hours.to_s + ' ore ' + activity
   end
 end
