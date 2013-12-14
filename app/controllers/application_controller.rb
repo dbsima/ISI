@@ -6,8 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
   
   def audit(action)
-     if Audit.first.log_level != 'dezactivat'
-	
+     if Audit.first.log_level <= current_user.roles_mask
 	$AUDIT.tagged(Time.now, current_user.roles.first.to_s, current_user.id, 
 	               current_user.first_name + " " + current_user.last_name) { $AUDIT.info action }
      end
