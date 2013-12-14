@@ -1,7 +1,5 @@
 <%= render :partial => 'layouts/menu' %>
 
-<%= @role %>
-
 <div align='left'>
   <%= calendar @timesheets, :start_day => :monday do |event| %>
     <%= link_to event.name, daily_sheet_path(event.daily_sheet.id) %> <br />
