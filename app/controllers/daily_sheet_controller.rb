@@ -5,7 +5,7 @@ class DailySheetController < ApplicationController
 	calendar = params.require('daily_sheet').permit "date"
 	date = Date.new calendar['date(1i)'].to_i, calendar['date(2i)'].to_i, calendar['date(3i)'].to_i
 	
-	@ds = @user.daily_sheets.find_or_create_by date: date
+	@ds = @user.monthly_sheets.find_by_month(Date.new(calendar['date(1i)'].to_i, calendar['date(2i)'].to_i, 1)).daily_sheets.find_or_create_by date: date
 	p @ds.tasks
      rescue ActionController::ParameterMissing
         
@@ -24,12 +24,15 @@ class DailySheetController < ApplicationController
   def create
      daily_sheet = params.require('daily_sheet').require('id')
      task  = params.require('task').permit 'activity', 'project_id', 'client', 'number_of_hours'
-     
-     if current_user.daily_sheets.find(daily_sheet).tasks.create(task)
+  
+     p = current_user.daily_sheets.find(daily_sheet).tasks.create(task)
+     if p
+	audit "a pontat #{p.id}, #{p.number_of_hours} ore la #{p.project.name}"
 	redirect_to :daily_sheet_index, alert: 'Pontaj efectuat!'
      else
 	redirect_to :daily_sheet_index, alert: 'Eroare la adaugarea pontajului!'
      end
+     
   end
 
   def edit
