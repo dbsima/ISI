@@ -15,6 +15,15 @@ class ClientsController < DeptChiefController
   end
 
   def edit
+     @client = Client.find(params.require(:id))
+  end
+  
+  def update
+     client = Client.find(params.require(:id))
+     client.name = params.require(:client).require :name
+     client.save
+     
+     redirect_to :clients, alert: 'Client modificat'
   end
   
   def destroy
