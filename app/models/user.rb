@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   
   has_many :monthly_sheets
   has_many :tasks
+  has_many :daily_sheets, :through => :monthly_sheets
   
   # Roles
   include RoleModel
