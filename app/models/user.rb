@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   belongs_to :division
   
   has_many :monthly_sheets
-  has_many :tasks
   has_many :daily_sheets, :through => :monthly_sheets
+  has_many :tasks, :through => :daily_sheets
   
   # Roles
   include RoleModel
