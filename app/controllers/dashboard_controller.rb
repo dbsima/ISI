@@ -23,7 +23,13 @@ class DashboardController < ApplicationController
     @timesheets = @user.tasks
   end
 
-  def new
+  def submit
+    id = params.require :dashboard_id
     
+    ms = MonthlySheet.find id.to_i
+    ms.status = 'submitted'
+    ms.save
+    
+    redirect_to :dashboard_index, :alert => 'Pontaj lunar trimis spre aprobare!'
   end
 end

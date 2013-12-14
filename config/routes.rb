@@ -15,7 +15,9 @@ TimesheetManagement::Application.routes.draw do
   get "dashboard/index"
   devise_for :users
   
-  resources :dashboard
+  resources :dashboard do
+     post 'submit'
+  end
   
   namespace :admin do
     resources :users
