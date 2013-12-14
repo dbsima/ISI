@@ -1,0 +1,18 @@
+<table>
+   <tr>
+      <th>Activitate</th>
+      <th>Proiect</th>
+      <th>Client</th>
+      <th>Numar Ore</th>
+   </tr>   
+   <% if @ds && @ds.tasks %>
+      <% @ds.tasks.each do |t| %>
+	<tr>
+	 <td><%= t.activity %></td>
+	 <td><%= t.project.name %></td>
+	 <td><%= t.project.client.name %></td>
+	 <td><%= t.number_of_hours %></td>
+	</tr>
+      <% end %>   
+   <% end %>
+</table>
