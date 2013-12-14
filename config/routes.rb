@@ -1,4 +1,7 @@
 TimesheetManagement::Application.routes.draw do
+  get "clients/index"
+  get "clients/new"
+  get "clients/edit"
   get "daily_sheet/index"
   get "daily_sheet/new"
   get "daily_sheet/edit"
@@ -29,6 +32,8 @@ TimesheetManagement::Application.routes.draw do
        end
     end
   end
+  
+  resources :clients
   
   resources :admin, :only => [:index]
   resources :daily_sheet
