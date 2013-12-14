@@ -13,7 +13,11 @@ class DailySheetController < ApplicationController
   end
 
   def new
-     
+     begin
+	@ds = params.require('daily_sheet')
+     rescue ActionController::ParameterMissing
+	redirect_to :daily_sheet_index
+     end
   end
   
   def create
