@@ -1,13 +1,14 @@
-<%= label :daily_sheet, "Activitate" %>
-<%= select :daily_sheet, 'activity', AvailableActivities.all.pluck(:name, :name) %>
+<%= hidden_field :daily_sheet, "id" %>
+<%= label :task, "Activitate" %>
+<%= select :task, 'activity', AvailableActivities.all.pluck(:name, :name) %>
 <br />
-<%= label :daily_sheet, 'Proiect' %>
-<%= select :daily_sheet, 'project', Project.all.pluck(:name, :id), :include_blank => true %>
+<%= label :task, 'Proiect' %>
+<%= select :task, 'project_id', Project.all.pluck(:name, :id), :include_blank => true %>
 <br />
-<%= label :daily_sheet, 'Client' %>
-<%= select :daily_sheet, 'client', Client.all.pluck(:name, :id) %>
-<br />
-<%= label :daily_sheet, 'Ore' %>
-<%= text_field :daily_sheet, 'number_of_hours' %>
+<!--<%= label :task, 'Client' %>
+<%= select :task, 'client', Client.all.pluck(:name, :id) %>
+<br />-->
+<%= label :task, 'Ore' %>
+<%= text_field :task, 'number_of_hours' %>
 <br />
 <%= submit_tag 'Save', :class => 'btn btn-primary' %>
