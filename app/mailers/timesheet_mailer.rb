@@ -15,4 +15,8 @@ class TimesheetMailer < ActionMailer::Base
        end
     end
   end
+  
+  def remember(employee)
+     mail to: employee.email, subject: 'Pontajul nu a fost trimis spre aprobare'
+  end
 end
