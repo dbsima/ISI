@@ -13,8 +13,8 @@
 	 <td><%= p.id %></td>
 	 <td><%= p.name %></td>
 	 <td><%= p.client.name %></td>
-	 <td><%= link_to 'Editare', edit_project_path(c.id) %></td>
-	 <td><%= link_to 'Sterge', { action: :destroy, id: c.id }, method: :delete, data: { confirm: 'Esti sigur?' } %></td>
+	 <td><%= link_to 'Editare', edit_project_path(p.id) %></td>
+	 <td><%= link_to 'Sterge', { action: :destroy, id: p.id }, method: :delete, data: { confirm: 'Esti sigur?' } %></td>
 	</tr>
       <% end %>   
 </table>

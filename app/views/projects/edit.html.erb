@@ -1,2 +1,4 @@
-<h1>Project#edit</h1>
-<p>Find me in app/views/project/edit.html.erb</p>
+<%= render :partial => 'layouts/menu' %>
+
+<%= form_tag({:action => 'update'}, :method => :put) %>
+<%= render :partial => 'form' %>
