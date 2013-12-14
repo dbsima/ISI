@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'flatui-rails'
 
+gem 'rufus-scheduler' # pentru cron jobs
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
