@@ -5,20 +5,31 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="/css/flat-ui.css" rel="stylesheet">
+  <link href="shortcut icon" rel="images/favicon.ico">
+  
 </head>
 <body style="background-color:#69BC9C;width:1200px;height:700px;	margin:0px auto;">
-<div class="navbar navbar-inverse center">
-<div class="navbar-inner">
-<div class="container">
-<div class="brand">TimesheetManagement</div>
-<div class="nav-collapse subnav-collapse">
-   <%= yield :menu %>
+  
+<nav class="navbar navbar-default center" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">
+      <button type="button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-user"></span>
+      </button>	ISI 
+    </a>
+  </div>
+  
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <%= yield :menu %>
+  </div>
+  
+</nav>
+<div class="center2">
+  <%= yield %> 
 </div>
-</div>
-</div>
-</div>
-
-<%= yield %>
 
 </body>
 </html>
