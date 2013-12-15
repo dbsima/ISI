@@ -10,7 +10,7 @@
 	<%= button_to 'Respinge', 'javascript:reason();' %>
 	<%= form_tag({:action => 'reject'}, :method => :post) %>
 	 <%= hidden_field :reject, "reason" %>
-	 <%= submit_tag 'Save', :id => 'respingee' %>
+	 <%= submit_tag 'Save', :id => 'respingee', :style => "display:none" %>
       <% else %>
 	 <%= submit_timesheet_button %>
       <% end %>
