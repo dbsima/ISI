@@ -4,12 +4,11 @@ class DailySheetController < ApplicationController
 	@user = current_user
 	calendar = params.require('daily_sheet').permit "date"
 	@date = Date.new calendar['date(1i)'].to_i, calendar['date(2i)'].to_i, calendar['date(3i)'].to_i
-	
-	@ds = @user.monthly_sheets.find_by_month(Date.new(calendar['date(1i)'].to_i, calendar['date(2i)'].to_i, 1)).daily_sheets.find_or_create_by date: @date
-	p @ds.tasks
+
      rescue ActionController::ParameterMissing
-        
+        @date = Date.today
      end
+     @ds = @user.monthly_sheets.find_by_month(@date.at_beginning_of_month).daily_sheets.find_or_create_by date: @date
   end
 
   def new
