@@ -63,7 +63,7 @@ class DashboardController < ApplicationController
     
      @ms = MonthlySheet.find id.to_i
      
-     @timesheets = @ms.tasks
+     @timesheets = @ms.user.tasks
      
      render 'index'
   end
