@@ -1,4 +1,5 @@
 TimesheetManagement::Application.routes.draw do
+  get "user_info/index"
   get "project/index"
   get "project/edit"
   get "project/new"
@@ -44,7 +45,7 @@ TimesheetManagement::Application.routes.draw do
   
   resources :admin, :only => [:index]
   resources :daily_sheet
-  root 'dashboard#index'
+  root 'user_info#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

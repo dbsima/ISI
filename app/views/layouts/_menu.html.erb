@@ -2,6 +2,7 @@
 <ul class="nav">
 <li><a href="/">Home</a></li>
 <li><%= link_to 'Pontaj zilnic', :daily_sheet_index %></li>
+<li><%= link_to 'Pontaje', :dashboard_index %></li>
 <% if current_user.has_role? :dept_chief %>
    <li><%= link_to 'Clienti', :clients %></li>
    <li><%= link_to 'Proiecte', :projects %></li>

@@ -1,0 +1,30 @@
+<%= render :partial => 'layouts/menu' %>
+<table>
+  <tr>
+    <td style="width:900px;height:300px" align="center">
+      <table class="detalii_angajat" width="100%">
+        <tr>
+          <th>Intern id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Division</th>
+          <th>Role</th>
+          <th> </th>
+          <th> </th>
+        </tr>
+        <tr>
+          <td><%= @user.internal_id %></td>
+          <td><%= @user.first_name %></td>
+          <td><%= @user.last_name %></td>
+          <td><%= @user.email %></td>
+  	  <td><%= @user.department.name if @user.department %></td>
+  	  <td><%= @user.division.name if @user.department %></td>
+          <td><%= @user.roles.first %></td>
+	 </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
