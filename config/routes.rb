@@ -23,6 +23,7 @@ TimesheetManagement::Application.routes.draw do
   
   resources :dashboard do
      post 'submit'
+     post 'reopen'
   end
   
   namespace :admin do

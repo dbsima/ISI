@@ -24,4 +24,13 @@ class DashboardController < ApplicationController
     TimesheetMailer.submit(ms).deliver
     redirect_to :dashboard_index, :alert => 'Pontaj lunar trimis spre aprobare!'
   end
+  
+  def reopen
+     id = params.require :dashboard_id
+     ms = MonthlySheet.find id.to_i
+     ms.status = 'open'
+     ms.save
+     
+     redirect_to :dashboard_index, :alert => 'Pontaj redeschis pentru editare'
+  end
 end
