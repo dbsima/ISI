@@ -1,5 +1,9 @@
 TimesheetManagement::Application.routes.draw do
+<<<<<<< HEAD
   get "user_info/index"
+=======
+  get "tasks/edit"
+>>>>>>> a500f8eece14cac1bb2692874f63509ec176a4c6
   get "project/index"
   get "project/edit"
   get "project/new"
@@ -20,6 +24,8 @@ TimesheetManagement::Application.routes.draw do
   get "users/new"
   get "users/edit"
   get "dashboard/index"
+  
+  post "/dashboard/:id/reject", to: 'dashboard#reject'
   devise_for :users
   
   resources :dashboard do
@@ -42,6 +48,7 @@ TimesheetManagement::Application.routes.draw do
   
   resources :clients
   resources :projects
+  resources :tasks
   
   resources :admin, :only => [:index]
   resources :daily_sheet
