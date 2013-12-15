@@ -5,9 +5,6 @@
 <%= label :task, 'Proiect' %>
 <%= select :task, 'project_id', Project.all.pluck(:name, :id), :include_blank => true %>
 <br />
-<!--<%= label :task, 'Client' %>
-<%= select :task, 'client', Client.all.pluck(:name, :id) %>
-<br />-->
 <%= label :task, 'Ore' %>
 <%= text_field :task, 'number_of_hours' %>
 <br />

@@ -4,6 +4,7 @@
       <th>Proiect</th>
       <th>Client</th>
       <th>Numar Ore</th>
+      <th> </th>
    </tr>   
    <% if @ds && @ds.tasks %>
       <% @ds.tasks.each do |t| %>
@@ -12,6 +13,7 @@
 	 <td><%= t.project.name %></td>
 	 <td><%= t.project.client.name %></td>
 	 <td><%= t.number_of_hours %></td>
+	 <td><%= link_to 'Modifica', edit_task_path(t.id) %></td>
 	</tr>
       <% end %>   
    <% end %>

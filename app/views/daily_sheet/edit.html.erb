@@ -1,2 +1,2 @@
-<h1>DailySheet#edit</h1>
-<p>Find me in app/views/daily_sheet/edit.html.erb</p>
+<%= form_tag({:action => 'update'}, :method => :put) %>
+<%= render :partial => 'form' %>

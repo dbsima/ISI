@@ -17,7 +17,7 @@ class DailySheetController < ApplicationController
 	@ds = params.require('daily_sheet')
 	@daily_sheet = DailySheet.find_by_id @ds.to_i
 	
-	unless @daily_sheet.monthly_sheet.status == 'open'
+	unless @daily_sheet.monthly_sheet.status == 'deschis'
 	   redirect_to :daily_sheet_index, :alert => 'Pontajul nu mai poate fi modificat'
 	end
      rescue ActionController::ParameterMissing
@@ -37,9 +37,6 @@ class DailySheetController < ApplicationController
 	redirect_to :daily_sheet_index, alert: 'Eroare la adaugarea pontajului!'
      end
      
-  end
-
-  def edit
   end
   
   def show
