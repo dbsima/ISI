@@ -7,8 +7,9 @@
       <th> </th>
    </tr>   
    <% if @ds && @ds.tasks %>
+      <% @acc = 0 %>
       <% @ds.tasks.each do |t| %>
-	<tr>
+	<tr class="<%= extra_hours(t) %>">
 	 <td><%= t.activity %></td>
 	 <td><%= t.project.name %></td>
 	 <td><%= t.project.client.name %></td>
