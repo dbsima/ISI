@@ -4,8 +4,12 @@
      <% if @ms %>
       Status: <%= @ms.status %>
       <% if @ms.status == 'trimis' && @ms.user.department.chief.include?(current_user) %>
+	
 	<%= button_to 'Accepta', dashboard_accept_path(@ms.id) %>
-	<%= button_to 'Respinge', dashboard_reject_path(@ms.id) %>
+	<%= button_to 'Respinge', 'javascript:reason();' %>
+	<%= form_tag({:action => 'reject'}, :method => :post) %>
+	 <%= hidden_field :reject, "reason" %>
+	 <%= submit_tag 'Save', :id => 'respingee' %>
       <% else %>
 	 <%= submit_timesheet_button %>
       <% end %>

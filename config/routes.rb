@@ -19,6 +19,8 @@ TimesheetManagement::Application.routes.draw do
   get "users/new"
   get "users/edit"
   get "dashboard/index"
+  
+  post "/dashboard/:id/reject", to: 'dashboard#reject'
   devise_for :users
   
   resources :dashboard do

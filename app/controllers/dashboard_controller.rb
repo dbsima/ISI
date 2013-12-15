@@ -44,9 +44,10 @@ class DashboardController < ApplicationController
   end
   
   def reject
-     id = params.require :dashboard_id
+     id = params.require :id
      ms = MonthlySheet.find id.to_i
      ms.status = 'respins'
+     ms.reason = params.require('reject').require('reason)'
      ms.save
      
      redirect_to dashboard_path(id), :alert => 'Pontajul a fost respins'

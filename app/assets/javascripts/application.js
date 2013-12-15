@@ -15,3 +15,9 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+
+function reason()
+{
+   jQuery('#reject_reason').val(prompt('Motivul respingerii'));
+   jQuery('#respingee').click();
+}
