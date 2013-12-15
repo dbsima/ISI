@@ -1,0 +1,5 @@
+<%= render :partial => 'layouts/menu' %>
+
+Data: <%= @ds.date %>
+<%= link_to 'New Task', new_daily_sheet_path(:daily_sheet => @ds.id) if @ds.monthly_sheet.user == current_user %>
+<%= render :partial => 'table' %>

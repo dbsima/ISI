@@ -1,0 +1,7 @@
+<%= label :project, "Nume" %>
+<%= text_field :project, 'name' %>
+<br />
+<%= label :project, "Client" %>
+ <%= select :project, 'client_id', Client.pluck(:name, :id) %>
+              <br />
+<%= submit_tag 'Save', :class => 'btn btn-primary' %>
