@@ -27,12 +27,13 @@
       </div>
       
     </nav>
-    <% if alert %>
-<p class="alert" id="alert"><%= alert %></p>
-<% end %>
+
     <hr>
     <ol class="breadcrumb">
-      <li class="active"><%= request.fullpath.split('?')[0] %>
+      <li class="active">
+          <% if alert %>
+<p class="alert" id="alert"><%= alert %></p>
+<% end %>
       </li>
     </ol>
     <hr>
