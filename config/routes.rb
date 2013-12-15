@@ -1,9 +1,6 @@
 TimesheetManagement::Application.routes.draw do
-<<<<<<< HEAD
   get "user_info/index"
-=======
   get "tasks/edit"
->>>>>>> a500f8eece14cac1bb2692874f63509ec176a4c6
   get "project/index"
   get "project/edit"
   get "project/new"
