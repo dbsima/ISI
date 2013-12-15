@@ -46,11 +46,16 @@ class DashboardController < ApplicationController
   def reject
      id = params.require :id
      ms = MonthlySheet.find id.to_i
-     ms.status = 'respins'
-     ms.reason = params.require('reject').require('reason')
-     ms.save
+
+     begin
+      ms.reason = params.require('reject').require('reason')
+      ms.status = 'respins'
+      ms.save
      
-     redirect_to dashboard_path(id), :alert => 'Pontajul a fost respins'
+      redirect_to dashboard_path(id), :alert => 'Pontajul a fost respins'
+     rescue ActionController::ParameterMissing
+	redirect_to :back, :alert => 'Motivul respingerii este inexistent'
+     end
   end
   
   def show
