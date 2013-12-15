@@ -1,19 +1,41 @@
 <%= render :partial => 'admin/menu' %>
-
-<%= link_to 'New Division', :new_admin_division %>
 <table>
-    <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th> </th>
-    </tr>
-<% @divisions.each do |u| %>
-<tr>
-    <td><%= u.id %></td>
-    <td><%= u.name %></td>
-    <td><%= link_to 'Edit', edit_admin_division_path(u.id) %><td/>
-    <td><%= link_to 'Delete', { action: :destroy, id: u.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    
-</tr>
-<% end %>
+  <tr>
+    <td style="width:900px;height:300px" valign="top">
+      <table class="detalii_angajat" width="100%">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th> </th>
+          <th> </th>
+        </tr>
+        <% @divisions.each do |u| %>
+        <tr>
+          <td><%= u.id %></td>
+          <td><%= u.name %></td>
+          <td><%= link_to 'Edit', edit_admin_division_path(u.id) %></td>
+          <td><%= link_to 'Delete', { action: :destroy, id: u.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </table>
+    </td>
+    <td style="width:200px;height:300px;background-color:#ECEEF0" align="center">
+      <table>
+        <tr>
+          <td align="center">
+            <a href="<%= new_admin_user_path %>" >
+              <button type="button" class="btn btn-default btn-lg">
+                <span class="glyphicon glyphicon-adjust"></span>
+              </button>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to 'New Division', :new_admin_division %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 </table>
