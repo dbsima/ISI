@@ -3,7 +3,12 @@
   <div align='right' style='margin-bottom: -50px;'>
      <% if @ms %>
       Status: <%= @ms.status %>
-      <%= submit_timesheet_button %>
+      <% if @ms.status == 'trimis' && @ms.user.department.chief.include?(current_user) %>
+	<%= button_to 'Accepta', dashboard_accept_path(@ms.id) %>
+	<%= button_to 'Respinge', dashboard_reject_path(@ms.id) %>
+      <% else %>
+	 <%= submit_timesheet_button %>
+      <% end %>
      <% end %>
   </div>
 <div align='left'>

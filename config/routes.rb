@@ -24,6 +24,8 @@ TimesheetManagement::Application.routes.draw do
   resources :dashboard do
      post 'submit'
      post 'reopen'
+     post 'accept'
+     post 'reject'
   end
   
   namespace :admin do
