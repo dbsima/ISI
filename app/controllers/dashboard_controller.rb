@@ -33,4 +33,14 @@ class DashboardController < ApplicationController
      
      redirect_to :dashboard_index, :alert => 'Pontaj redeschis pentru editare'
   end
+  
+  def show
+     id = params.require :id
+    
+     @ms = MonthlySheet.find id.to_i
+     
+     @timesheets = @ms.tasks
+     
+     render 'index'
+  end
 end

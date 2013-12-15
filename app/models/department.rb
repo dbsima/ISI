@@ -4,4 +4,8 @@ class Department < ActiveRecord::Base
    belongs_to :division
    has_many :users
    has_many :tasks, :through => :users
+   
+   def chief
+      users.select  {|u| u if u.has_role? :dept_chief }
+   end
 end
