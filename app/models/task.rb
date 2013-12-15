@@ -8,7 +8,7 @@ class Task < ActiveRecord::Base
    end
 
 def start_time
-    created_at
+    daily_sheet.date
 end
 
    def name

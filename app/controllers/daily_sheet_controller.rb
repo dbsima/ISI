@@ -30,6 +30,8 @@ class DailySheetController < ApplicationController
   
      p = current_user.daily_sheets.find(daily_sheet).tasks.create(task)
      if p
+	p.user = current_user
+	p.save
 	audit "a pontat #{p.id}, #{p.number_of_hours} ore la #{p.project.name}"
 	redirect_to :daily_sheet_index, alert: 'Pontaj efectuat!'
      else
