@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131215093158) do
+ActiveRecord::Schema.define(version: 20131219132251) do
 
   create_table "audits", force: true do |t|
     t.integer  "log_level",  limit: 255
@@ -103,5 +103,14 @@ ActiveRecord::Schema.define(version: 20131215093158) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["internal_id"], name: "index_users_on_internal_id", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "vacantions", force: true do |t|
+    t.string   "type"
+    t.integer  "user_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
