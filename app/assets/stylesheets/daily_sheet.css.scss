@@ -3,9 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .normal_hours {
-   
+  
 }
 
 .extra_hours {
-   background-color: red;
+  background-color: red;
+}
+
+.daily_sheet_table th,
+.daily_sheet_table td{
+  text-align:center;
 }

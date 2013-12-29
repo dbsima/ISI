@@ -1,23 +1,44 @@
 <%= render :partial => 'layouts/menu' %>
-<div class='left-margin span12' style="padding-top: 30px">
-  <div align='right' style='margin-bottom: -50px;'>
-     <% if @ms %>
-      Status: <%= @ms.status %>
-      <%= 'Motivul: ' + @ms.reason if @ms.status == 'respins' %>
-      <% if @ms.status == 'trimis' && @ms.user.department.chief.include?(current_user) %>
-	
-	<%= button_to 'Accepta', dashboard_accept_path(@ms.id) %>
-	<%= button_to 'Respinge', 'javascript:reason();' %>
-	<%= form_tag({:action => 'reject'}, :method => :post) %>
-	 <%= hidden_field :reject, "reason" %>
-	 <%= submit_tag 'Save', :id => 'respingee', :style => "display:none" %>
-      <% else %>
-	 <%= submit_timesheet_button %>
-      <% end %>
-     <% end %>
-  </div>
-<div align='left'>
-  <%= calendar @timesheets, :start_day => :monday do |event| %>
-    <%= link_to event.name, daily_sheet_path(event.daily_sheet.id) %> <br />
-  <% end %>
-</div>
+
+
+<table>
+  <tr>
+    <td style="width:700px;" valign="top">
+      <table width=100%>
+        <tr>
+          <td style="text-align:center">
+            <div class="new">
+              <%= calendar @timesheets, :start_day => :monday do |event| %>
+              <%= link_to event.name, daily_sheet_path(event.daily_sheet.id) %> <br />
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table style="width:400px;height:100%;background-color:#ECEEF0" align="center">
+        <tr>
+          <td  align="center">
+            <% if @ms %>
+            Status: <%= @ms.status %>
+            <%= 'Motivul: ' + @ms.reason if @ms.status == 'respins' %>
+            <% if @ms.status == 'trimis' && @ms.user.department.chief.include?(current_user) %>
+            
+            <%= button_to 'Accepta', dashboard_accept_path(@ms.id) %>
+            <%= button_to 'Respinge', 'javascript:reason();' %>
+            <%= form_tag({:action => 'reject'}, :method => :post) %>
+            <%= hidden_field :reject, "reason" %>
+            <%= submit_tag 'Save', :id => 'respingee', :style => "display:none" %>
+            <% else %>
+            <%= submit_timesheet_button %>
+            <% end %>
+            <% end %>         
+            <span class="glyphicon glyphicon glyphicon-transfer"></span>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

@@ -1,8 +1,33 @@
 <%= render :partial => 'layouts/menu' %>
 
 <%= form_tag({:action => 'index'}, :method => :get) %>
-Data: <%= date_select :daily_sheet, 'date', selected: @date %>
-<%= submit_tag 'Afisare/Completare', :class => 'btn', :style => 'margin-right: 10px;' %>
-<%= link_to 'New Task', new_daily_sheet_path(:daily_sheet => @ds.id) if @ds %>
-<%= render :partial => 'table' %>
-
+<table>
+  <tr>
+    <td style="width:700px;height:300px" valign="top">
+      <table width=100%>
+        <tr>
+          <td style="text-align:center">
+            <div class="new">
+              Data: <%= date_select :daily_sheet, 'date', selected: @date %>
+              <br />              
+              <%= submit_tag 'Afisare/Completare', :class => 'btn', :style => 'margin-right: 10px;' %>
+            </div>
+              <br />              
+            <%= render :partial => 'table' %>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table style="width:400px;height:300px;background-color:#ECEEF0" align="center">
+        <tr>
+          <td  align="center">
+            <span class="glyphicon glyphicon glyphicon-plus-sign"></span>
+            <br>
+            <%= link_to 'New Task', new_daily_sheet_path(:daily_sheet => @ds.id) if @ds %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
