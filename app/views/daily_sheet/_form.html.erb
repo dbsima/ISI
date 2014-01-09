@@ -1,11 +1,34 @@
-<%= hidden_field :daily_sheet, "id" %>
-<%= label :task, "Activitate" %>
-<%= select :task, 'activity', AvailableActivities.all.pluck(:name, :name) %>
-<br />
-<%= label :task, 'Proiect' %>
-<%= select :task, 'project_id', Project.all.pluck(:name, :id), :include_blank => true %>
-<br />
-<%= label :task, 'Ore' %>
-<%= text_field :task, 'number_of_hours' %>
-<br />
-<%= submit_tag 'Save', :class => 'btn btn-primary' %>
+<table>
+  <tr>
+    <td style="width:700px;height:300px" valign="top">
+      <table width=100%>
+        <tr>
+          <td>
+            <div class="new">
+              <%= hidden_field :daily_sheet, "id" %>
+              <%= label :task, "Activitate" %>
+              <%= select :task, 'activity', AvailableActivities.all.pluck(:name, :name) %>
+              <br />
+              <%= label :task, 'Proiect' %>
+              <%= select :task, 'project_id', Project.all.pluck(:name, :id), :include_blank => true %>
+              <br />
+              <%= label :task, 'Ore' %>
+              <%= text_field :task, 'number_of_hours' %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table style="width:400px;height:300px;background-color:#ECEEF0" align="center">
+        <tr>
+          <td  align="center">
+            <span class="glyphicon glyphicon-floppy-save"></span>
+            <br>
+            <%= submit_tag 'Save', :class => 'btn btn-primary' %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>              

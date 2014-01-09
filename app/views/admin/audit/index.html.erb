@@ -1,7 +1,30 @@
 <%= render :partial => 'admin/menu' %>
 
-<%= form_tag({:action => 'set_level'}, :method => :post) %>
-<%= label :audit, 'Nivel' %>
-<%= select :audit, 'log_level', Audit.levels, selected: @current_level %>
-<br />
-<%= submit_tag 'Save', :class => 'btn btn-primary' %>
+<table>
+  <tr>
+    <td style="width:700px;height:300px" valign="top">
+      <table width=100%>
+        <tr>
+          <td>
+            <div class="new">
+              <%= form_tag({:action => 'set_level'}, :method => :post) %>
+              <%= label :audit, 'Nivel' %>
+              <%= select :audit, 'log_level', Audit.levels, selected: @current_level %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table style="width:400px;height:300px;background-color:#ECEEF0" align="center">
+        <tr>
+          <td  align="center">
+            <span class="glyphicon glyphicon-floppy-save"></span>
+            <br>
+            <%= submit_tag 'Save', :class => 'btn btn-primary' %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
