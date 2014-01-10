@@ -1,0 +1,19 @@
+<div class="new">
+  Data Start: <%= date_select :report_date, 'date_start', selected: @date_start %>
+  Data Sfarsit: <%= date_select :report_date, 'date_finish', selected: @date_finish %>
+  <br />
+  <%= submit_tag 'Afisare', :class => 'btn', :style => 'margin-right: 10px;' %>
+</div>
+
+<div>
+  <% @projects.each do |k, v| %>
+      <div>
+        <h3><%= k %> <%= v['hours'] %> ore</h3>
+        <% v['activities'].each do |k, v| %>
+            <%= k %> <%= v %> ore
+            <br />
+        <% end %>
+      </div>
+
+  <% end %>
+</div>
