@@ -24,6 +24,7 @@
           <td><%= u.division.name if u.division %> </td>
           <td><%= u.roles.first %></td>
           <td><%= link_to 'Timesheet', dashboard_path(u.monthly_sheets.order(:month).last) %></td>
+          <td><%= link_to 'Activitate', user_report_path(u.id) %></td>
         </tr>
         <% end %>
       </table>
