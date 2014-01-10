@@ -1,5 +1,6 @@
 TimesheetManagement::Application.routes.draw do
 
+  get "project_report/show"
   get "user_report/show"
   get "employees/index"
   get "user_info/index"
@@ -52,7 +53,8 @@ TimesheetManagement::Application.routes.draw do
   resources :employees
 
   resources :user_report
-  
+  resources :project_report
+
   resources :admin, :only => [:index]
   resources :daily_sheet
   root 'user_info#index'
