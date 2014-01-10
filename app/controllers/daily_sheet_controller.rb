@@ -32,7 +32,7 @@ class DailySheetController < ApplicationController
      if p
 	p.user = current_user
 	p.save
-	audit "a pontat #{p.id}, #{p.number_of_hours} ore la #{p.project.name}"
+	audit "a pontat #{p.id}, #{p.number_of_hours} ore la #{p.project.name if p.project}"
 	redirect_to :daily_sheet_index, alert: 'Pontaj efectuat!'
      else
 	redirect_to :daily_sheet_index, alert: 'Eroare la adaugarea pontajului!'

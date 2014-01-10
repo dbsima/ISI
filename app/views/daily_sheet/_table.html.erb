@@ -11,8 +11,10 @@
       <% @ds.tasks.each do |t| %>
 	<tr class="<%= extra_hours(t) %>">
 	 <td><%= t.activity %></td>
-	 <td><%= t.project.name %></td>
-	 <td><%= t.project.client.name %></td>
+     <% if t.project %>
+         <td><%= t.project.name %></td>
+         <td><%= t.project.client.name %></td>
+     <% end %>
 	 <td><%= t.number_of_hours %></td>
 	 <% if @ds.monthly_sheet.user == current_user %>
 	    <td><%= link_to 'Modifica', edit_task_path(t.id) %></td>
