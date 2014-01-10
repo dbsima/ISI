@@ -16,6 +16,7 @@
 	 <td><%= p.client.name %></td>
 	 <td><%= link_to 'Editare', edit_project_path(p.id) %></td>
 	 <td><%= link_to 'Sterge', { action: :destroy, id: p.id }, method: :delete, data: { confirm: 'Esti sigur?' } %></td>
+      <td><%= link_to 'Raport', project_report_path(p.id) %></td>
 	</tr>
       <% end %>   
 </table>
