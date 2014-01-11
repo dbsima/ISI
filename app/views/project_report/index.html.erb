@@ -8,7 +8,17 @@
 </div>
 
 <div>
-  <% @projects.each do |k, v| %>
-      <%= k %> <%= v %> h
-  <% end %>
+  <table>
+    <tr>
+      <th>Proiect</th>
+      <th><%= link_to 'Ore', sort_link %></th>
+      <th> </th>
+    </tr>
+      <% @projects.each do |k, v| %>
+         <tr>
+          <td><%= k %></td>
+           <td><%= v %></td>
+         </tr>
+      <% end %>
+  </table>
 </div>
