@@ -10,4 +10,12 @@ class EmployeesController < ApplicationController
 	@employees = User.where('roles_mask > 2')
      end
   end
+
+  def show
+    department = Department.find params.require :id
+
+    @employees = User.where(:department => current_user.department)
+
+    render 'employees/index'
+  end
 end

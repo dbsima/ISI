@@ -8,6 +8,7 @@
           <th>Name</th>
           <th>Division</th>
           <th> </th>
+          <th></th>
         </tr>
         <% @departments.each do |u| %>
             <tr>
@@ -15,7 +16,7 @@
               <td><%= u.name %></td>
               <td><%= u.division.name if u.division %></td>
               <td><%= link_to 'Raport', department_path(u.id) %></td>
-
+              <td><%= link_to 'Angajati', employee_path(u.id) %></td>
             </tr>
         <% end %>
       </table>
