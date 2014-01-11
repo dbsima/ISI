@@ -1,4 +1,19 @@
 class UserReportController < ApplicationController
+  def index
+    begin
+      user = User.find_by_internal_id params.require(:search)
+      if user
+        dates = params.require :report_date
+
+        redirect_to user_report_path(user.id, dates)
+      else
+        flash[:alert] = 'Angajatul nu a fost gasit'
+      end
+    rescue ActionController::ParameterMissing => e
+
+    end
+  end
+
   def show
     user =  params.require :id
 

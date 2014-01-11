@@ -4,55 +4,42 @@
 
 var chart;
 var legend;
+<% n = 0 %>
+<% @projects.each do |k, v| %>
+    var chartData<%= n %> = [
 
-var chartData = [
-{
-	"country": "Czech Republic",
-	"litres": 301.9
-},
-{
-	"country": "Ireland",
-	"litres": 201.1
-},
-{
-	"country": "Germany",
-	"litres": 165.8
-},
-{
-	"country": "Australia",
-	"litres": 139.9
-},
-{
-	"country": "Austria",
-	"litres": 128.3
-},
-{
-	"country": "UK",
-	"litres": 99
-},
-{
-	"country": "Belgium",
-	"litres": 60
-}
-];
 
-AmCharts.ready(function () {
-// PIE CHART
-chart = new AmCharts.AmPieChart();
-chart.dataProvider = chartData;
-chart.titleField = "country";
-chart.valueField = "litres";
-chart.outlineColor = "#FFFFFF";
-chart.outlineAlpha = 0.8;
-chart.outlineThickness = 2;
-chart.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>";
+        <% v['activities'].each_with_index do |(k2, v2), i| %>
+        {
+           "activitate": "<%= k2 %>",
+           "ore": "<%= v2 %>"
+        } <%= ',' unless i == v['activities'].size - 1 %>
+        <% end %>
 
-// WRITE
-chart.write("chartdiv");
-});
+    ];
+    <% n += 1 %>
+<% end %>
 
+<% 0.upto n do |i| %>
+    AmCharts.ready(function () {
+    // PIE CHART
+    chart = new AmCharts.AmPieChart();
+    chart.dataProvider = chartData<%= i %>;
+    chart.titleField = "activitate";
+    chart.valueField = "ore";
+    chart.outlineColor = "#FFFFFF";
+    chart.outlineAlpha = 0.8;
+    chart.outlineThickness = 2;
+    chart.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>";
+
+    // WRITE
+    chart.write("chartdiv<%= i %>");
+    });
+<% end %>
 </script>
-
+<% 0.upto n do |i| %>
+    <div id="chartdiv<%= i %>" style="width: 100%; height: 362px;"></div>
+<% end %>
 
 <div class="new">
 Data Start: <%= date_select :report_date, 'date_start', selected: @date_start %>
@@ -74,4 +61,3 @@ Data Sfarsit: <%= date_select :report_date, 'date_finish', selected: @date_finis
 <% end %>
 </div>
 
-<div id="chartdiv" style="width: 100%; height: 362px;"></div>
