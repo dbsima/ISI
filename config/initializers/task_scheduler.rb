@@ -15,4 +15,4 @@ scheduler = Rufus::Scheduler.new
 #   User.all.where('roles_mask >= 16').each do |u|
 #      TimesheetMailer.remember(u).deliver if u.monthly_sheets.order('month').last.status == 'open'
 #   end
-end
+#end
