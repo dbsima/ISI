@@ -1,0 +1,44 @@
+<%= render :partial => 'layouts/menu' %>
+
+<script>
+
+    var chart;
+    var legend;
+    <% n = 0 %>
+    <% @clients.each do |k, v| %>
+    var chartData<%= n %> = [
+
+
+        <% v.each_with_index do |(k2, v2), i| %>
+        {
+            "proiect": "<%= k2 %>",
+            "ore": "<%= v2 %>"
+        } <%= ',' unless i == v.size - 1 %>
+        <% end %>
+
+    ];
+    <% n += 1 %>
+    <% end %>
+
+    <% 0.upto n do |i| %>
+    AmCharts.ready(function () {
+        // PIE CHART
+        chart = new AmCharts.AmPieChart();
+        chart.dataProvider = chartData<%= i %>;
+        chart.titleField = "proiect";
+        chart.valueField = "ore";
+        chart.outlineColor = "#FFFFFF";
+        chart.outlineAlpha = 0.8;
+        chart.outlineThickness = 2;
+        chart.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>";
+
+        // WRITE
+        chart.write("chartdiv<%= i %>");
+    });
+    <% end %>
+</script>
+
+
+<% 0.upto n do |i| %>
+    <div id="chartdiv<%= i %>" style="width: 100%; height: 362px;"></div>
+<% end %>
