@@ -1,0 +1,38 @@
+<%= render :partial => 'layouts/menu' %>
+<table>
+  <tr>
+    <td style="width:900px;height:300px" valign="top">
+      <table class="detalii_angajat" width="100%">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Division</th>
+          <th> </th>
+        </tr>
+        <% @departments.each do |u| %>
+            <tr>
+              <td><%= u.id %></td>
+              <td><%= u.name %></td>
+              <td><%= u.division.name if u.division %></td>
+              <td><%= link_to 'Raport', department_path(u.id) %></td>
+
+            </tr>
+        <% end %>
+      </table>
+    </td>
+    <td style="width:200px;height:300px;background-color:#ECEEF0" align="center">
+      <table>
+        <tr>
+          <td align="center">
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

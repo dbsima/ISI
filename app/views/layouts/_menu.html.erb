@@ -17,6 +17,9 @@
 
       <% end %>
       <%= link_to 'Angajati', :employees if current_user.roles_mask < 16 %>
+      <% if current_user.roles_mask < 8 %>
+        <%= link_to 'Departamente', :departments %>
+      <% end %>
       <li> <%= link_to "Log Out", :destroy_user_session, :method => :delete %> </li>
 			</ul>
 		  </li>
