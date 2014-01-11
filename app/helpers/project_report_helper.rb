@@ -6,9 +6,9 @@ module ProjectReportHelper
   def sort_link
     p @sort
     if @sort && @sort[:sort] == 'asc'
-      project_report_index_path(:sort => 'desc')
+      department_path(@id, :sort => 'desc')
     else
-      project_report_index_path :sort => 'asc'
+      department_path @id, :sort => 'asc'
     end
   end
 end

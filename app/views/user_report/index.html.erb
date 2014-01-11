@@ -1,8 +1,0 @@
-<%= render :partial => 'layouts/menu' %>
-
-<%= form_tag(:user_report_index, :method => 'get') do %>
-    Data Start: <%= date_select :report_date, 'date_start', selected: @date_start %>
-    Data Sfarsit: <%= date_select :report_date, 'date_finish', selected: @date_finish %>
-    ID angajat: <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Cautare", :name => nil %>
-<% end %>

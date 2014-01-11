@@ -17,27 +17,29 @@ class ProjectReportController < ApplicationController
   end
 
   def index
-    begin
-      pars = params.require(:report_date).permit :date_start, :date_finish
+    #begin
+    #  pars = params.require(:report_date).permit :date_start, :date_finish
+    #
+    #rescue ActionController::ParameterMissing => e
+    #
+    #end
+    #@sort = params.permit :sort
+    #
+    #@projects = {}
+    #tasks = current_user.department.tasks
 
-    rescue ActionController::ParameterMissing => e
+    redirect_to department_path(current_user.department.id, params)
 
-    end
-    @sort = params.permit :sort
-
-    @projects = {}
-    tasks = current_user.department.tasks
-
-    tasks.pluck(:project_id).uniq.select { |x| x }.each do |p_id|
-      @projects[Project.find(p_id).name] = tasks.where(project_id: p_id).inject(0)  {|acc, x| acc + x.number_of_hours}
-    end
-
-    if @sort[:sort]
-      if @sort[:sort] == 'asc'
-          @projects = @projects.sort_by { |k, v| v }
-      else
-        @projects = @projects.sort_by { |k, v| -v }
-      end
-    end
+    #tasks.pluck(:project_id).uniq.select { |x| x }.each do |p_id|
+    #  @projects[Project.find(p_id).name] = tasks.where(project_id: p_id).inject(0)  {|acc, x| acc + x.number_of_hours}
+    #end
+    #
+    #if @sort[:sort]
+    #  if @sort[:sort] == 'asc'
+    #      @projects = @projects.sort_by { |k, v| v }
+    #  else
+    #    @projects = @projects.sort_by { |k, v| -v }
+    #  end
+    #end
   end
 end
