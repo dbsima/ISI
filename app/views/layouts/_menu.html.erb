@@ -17,7 +17,6 @@
 
   <% end %>
   <%= link_to 'Angajati', :employees if current_user.roles_mask < 16 %>
-  <li> <%= link_to "Log Out", :destroy_user_session, :method => :delete %> </li>
 		</ul>
 	  </li>
   
@@ -31,10 +30,14 @@
 		<%= link_to "Proiecte in desfasurare", :project_report_index %>
         <%= link_to 'Departamente', :departments %>
 	<% end %>
+    <% if current_user.roles_mask < 4 %>
+        <%= link_to "Clienti", :clients_report_index %>
+    <% end %>
   </ul>
 </li>
 
 	  <li><a href="#"><button type="button" class="btn btn-default">Ajutor</button></a></li>
+      <li><%= button_to "Log Out", :destroy_user_session, :method => :delete, :class => 'btn btn-danger' %></li>
 
 </ul>
 
