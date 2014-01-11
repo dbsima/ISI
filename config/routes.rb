@@ -59,6 +59,13 @@ TimesheetManagement::Application.routes.draw do
   resources :departments
   resources :clients_report
 
+  resources :api do
+    collection do
+      post 'extra'
+      post 'concedii'
+    end
+  end
+
   resources :admin, :only => [:index]
   resources :daily_sheet
   root 'user_info#index'

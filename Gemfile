@@ -20,6 +20,7 @@ group :production do
 end
 
 gem 'rabl'
+gem 'rest-client'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

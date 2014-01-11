@@ -126,6 +126,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     role_model (0.8.1)
     rspec-core (2.14.7)
     rspec-expectations (2.14.4)
@@ -200,6 +202,7 @@ DEPENDENCIES
   rabl
   rails (= 4.0.0)
   rails-erd
+  rest-client
   role_model
   rspec-rails
   rufus-scheduler
