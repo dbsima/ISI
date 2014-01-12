@@ -1,4 +1,7 @@
 class UserReportController < ApplicationController
+  include Concerns::DateSelect
+
+  before_filter :get_date_params, :only => [:show]
   def index
     begin
       user = User.find_by_internal_id params.require(:search)
@@ -16,27 +19,23 @@ class UserReportController < ApplicationController
 
   def show
     user =  params.require :id
-
-    begin
-      pars = params.require(:report_date).permit :date_start, :date_finish
-    rescue ActionController::ParameterMissing => e
-
-    end
-
-    tasks = User.find(user).tasks
+    @id = user
+    tasks = filter_tasks_by_date_params(User.find(user).tasks)
     p tasks
-    projects_ids = tasks.pluck(:project_id).uniq.select { |x| x }
+    projects_ids = tasks.collect {|t| t.project_id}.uniq.select { |x| x }
+    p projects_ids
     @projects = {}
+    p tasks
     projects_ids.each do |p_id|
-      activities = tasks.where(project_id: p_id).pluck(:activity).uniq.select { |x| x }
+      activities = tasks.select {|t| t if t.project_id == p_id}.collect {|t| t.activity}.uniq.select { |x| x }
       p_name = Project.find(p_id).name
 
       @projects[p_name] = {}
-      @projects[p_name]['hours'] = tasks.where(project_id: p_id).inject(0)  {|acc, x| acc + x.number_of_hours}
+      @projects[p_name]['hours'] = tasks.select {|t| t if t.project_id == p_id}.inject(0)  {|acc, x| acc + x.number_of_hours}
       @projects[p_name]['activities'] = {}
 
       activities.each do |a|
-        @projects[p_name]['activities'][a] = tasks.where(project_id: p_id, activity: a).inject(0)  {|acc, x| acc + x.number_of_hours}
+        @projects[p_name]['activities'][a] = tasks.select {|t| t if t.project_id == p_id && t.activity == a}.inject(0)  {|acc, x| acc + x.number_of_hours}
       end
     end
 

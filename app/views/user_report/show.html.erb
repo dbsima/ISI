@@ -37,7 +37,7 @@ var legend;
     });
 <% end %>
 </script>
-
+<%= form_tag(user_report_path(@id), :method => 'get') do %>
 <table style="border-bottom:15px solid #69BC9C">
   <tr>
     <td style="width:500px;height:100px" valign="top">
@@ -60,6 +60,7 @@ Data Sfarsit: <%= date_select :report_date, 'date_finish', selected: @date_finis
             <span class="glyphicon glyphicon-eye-open"></span>
             <br>
 <%= submit_tag 'Afisare', :class => 'btn', :style => 'margin-right: 10px;' %>          </td>
+          <% end %>
         </tr>
       </table>
     </td>
