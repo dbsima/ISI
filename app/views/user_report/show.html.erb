@@ -57,7 +57,7 @@ Data Sfarsit: <%= date_select :report_date, 'date_finish', selected: @date_finis
       <table style="width:600px;height:100px;background-color:#69BC9C" align="center">
         <tr>
           <td  align="center">
-            <span class="glyphicon glyphicon-floppy-save"></span>
+            <span class="glyphicon glyphicon-eye-open"></span>
             <br>
 <%= submit_tag 'Afisare', :class => 'btn', :style => 'margin-right: 10px;' %>          </td>
         </tr>
@@ -77,10 +77,10 @@ Data Sfarsit: <%= date_select :report_date, 'date_finish', selected: @date_finis
         <tr>
           <td>
             <div class="new">	
-			<h3><%= k %> <%= v['hours'] %> ore</h3>
+			<h3><%= k %> <span style="float:right"><%= v['hours'] %> ore</span></h3>
 			<div style="height:5px;width:100%;background-color:#69BC9C"></div>
 	<% v['activities'].each do |k, v| %>
-		<%= k %> <%= v %> ore
+		<%= k %> <span style="float:right"><%= v %> ore</span>
 		<br />
 	<% end %>
 	</div>
