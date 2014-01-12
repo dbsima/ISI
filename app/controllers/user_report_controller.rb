@@ -8,7 +8,7 @@ class UserReportController < ApplicationController
       if user
         dates = params.require :report_date
 
-        redirect_to user_report_path(user.id, dates)
+        redirect_to user_report_path(user.id, report_date: dates)
       else
         flash[:alert] = 'Angajatul nu a fost gasit'
       end
