@@ -1,13 +1,36 @@
 <%= render :partial => 'layouts/menu' %>
 <% if @search %>
+<table style="border-bottom:15px solid #69BC9C">
+  <tr>
+    <td style="width:500px;height:100px;text-align:center" >
+      <table width=100% align="center">
+        <tr>
+          <td>
+            <div class="new">
     <%= form_tag(:search_project_report_index, :method => 'get') do %>
         <%= text_field_tag :search, params[:search] %>
         <%= submit_tag "Cautare", :name => nil %>
     <% end %>
+	</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>
+	<table style="width:600px;height:100px;background-color:#69BC9C" align="center">
+        <tr>
+          <td  align="center">
+            <span class="glyphicon glyphicon-search"></span>
+                      </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
 <% else %>
     <%= link_to "Proiect Nou", :new_project %>
 <% end %>
-<table>
+<table width="600px" align="center">
    <tr>
       <th>ID</th>
       <th>Nume proiect</th>

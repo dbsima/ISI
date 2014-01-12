@@ -1,14 +1,46 @@
 <%= render :partial => 'layouts/menu' %>
 
-<div class="new">
-  Data Start: <%= date_select :report_date, 'date_start', selected: @date_start %>
+<table style="border-bottom:15px solid #69BC9C">
+  <tr>
+    <td style="width:500px;height:100px" valign="top">
+      <table width=100%>
+        <tr>
+          <td>
+            <div class="new">
+			Data Start: <%= date_select :report_date, 'date_start', selected: @date_start %></br></br>
   Data Sfarsit: <%= date_select :report_date, 'date_finish', selected: @date_finish %>
-  <br />
-  <%= submit_tag 'Afisare', :class => 'btn', :style => 'margin-right: 10px;' %>
 </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table style="width:600px;height:100px;background-color:#69BC9C" align="center">
+        <tr>
+          <td  align="center">
+            <span class="glyphicon glyphicon-eye-open"></span>
+            <br>
+    <%= submit_tag 'Afisare', :class => 'btn', :style => 'margin-right: 10px;' %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
 
-<div>
+
+<table width="400px" align="center">
+<tr>
+<th>
+Nume
+</th>
+<th>
+Ore
+</th>
+</tr>
   <% @employees.each do |k, v| %>
-    <%= user_name(k) %> <%= v %> h
+  <tr>
+    <td><%= user_name(k) %></td><td> <%= v %> </td>
+	</tr>
   <% end %>
-</div>
+</table>
