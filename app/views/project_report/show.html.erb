@@ -1,5 +1,36 @@
 <%= render :partial => 'layouts/menu' %>
 
+<script>
+
+var chart;
+var legend;
+<% n = 0 %>
+    var chartData = [
+
+        <% @employees.each_with_index do |(k, v), i| %>
+        {
+           "nume": "<%= user_name(k) %>",
+           "ore": "<%= v %>"
+        } <%= ',' unless i == @employees.size - 1 %>
+		<% end %>
+    ];
+
+    AmCharts.ready(function () {
+    // PIE CHART
+    chart = new AmCharts.AmPieChart();
+    chart.dataProvider = chartData;
+    chart.titleField = "nume";
+    chart.valueField = "ore";
+    chart.outlineColor = "#FFFFFF";
+    chart.outlineAlpha = 0.8;
+    chart.outlineThickness = 2;
+    chart.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>";
+
+    // WRITE
+    chart.write("chartdiv");
+    });
+</script>
+
 <table style="border-bottom:15px solid #69BC9C">
   <tr>
     <td style="width:500px;height:100px" valign="top">
@@ -30,8 +61,11 @@
 </table>
 
 
-<table width="400px" align="center">
-<tr>
+<div>
+  <table style="border-bottom:5px solid #69BC9C">
+  <tr>
+    <td style="width:500px;height:100px" valign="top">
+      <table width=100%><tr>
 <th>
 Nume
 </th>
@@ -45,3 +79,16 @@ Ore
 	</tr>
   <% end %>
 </table>
+  </td>
+    <td>
+      <table style="width:600px;height:100px;background-color:#69BC9C" align="center">
+        <tr>
+          <td  align="center">
+		   <div id="chartdiv" style="width: 100%; height: 362px;"></div>
+</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table> 
+</div>

@@ -1,6 +1,7 @@
 class UserReportController < ApplicationController
   include Concerns::DateSelect
 
+  skip_before_filter :authenticate_user!
   before_filter :get_date_params, :only => [:show]
   def index
     begin
