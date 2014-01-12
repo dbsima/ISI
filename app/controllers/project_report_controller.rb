@@ -1,18 +1,16 @@
 class ProjectReportController < ApplicationController
+  include Concerns::DateSelect
+
+  before_filter :get_date_params, :only => [:show]
+
   def show
-    project_id =  params.require :id
+    @id = project_id =  params.require :id
 
-    begin
-      pars = params.require(:report_date).permit :date_start, :date_finish
-    rescue ActionController::ParameterMissing => e
-
-    end
-
-    tasks = Project.find(project_id).tasks
+    tasks = filter_tasks_by_date_params Project.find(project_id).tasks
 
     @employees = {}
-    tasks.pluck(:user_id).uniq.select { |x| x }.each do |u_id|
-      @employees[u_id] = tasks.where(user_id: u_id).inject(0)  {|acc, x| acc + x.number_of_hours}
+    tasks.collect {|t| t.user_id}.uniq.select { |x| x }.each do |u_id|
+      @employees[u_id] = tasks.select {|t| t.user_id == u_id}.inject(0)  {|acc, x| acc + x.number_of_hours}
     end
   end
 

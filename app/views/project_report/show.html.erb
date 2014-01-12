@@ -7,6 +7,7 @@
         <tr>
           <td>
             <div class="new">
+              <%= form_tag(project_report_path(@id), :method => 'get') do %>
 			Data Start: <%= date_select :report_date, 'date_start', selected: @date_start %></br></br>
   Data Sfarsit: <%= date_select :report_date, 'date_finish', selected: @date_finish %>
 </div>
@@ -20,7 +21,7 @@
           <td  align="center">
             <span class="glyphicon glyphicon-eye-open"></span>
             <br>
-    <%= submit_tag 'Afisare', :class => 'btn', :style => 'margin-right: 10px;' %>
+    <%= submit_tag 'Afisare', :class => 'btn', :style => 'margin-right: 10px;' %><% end %>
           </td>
         </tr>
       </table>
