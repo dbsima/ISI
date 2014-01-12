@@ -1,4 +1,7 @@
 class DepartmentsController < ApplicationController
+  include Concerns::DateSelect
+
+  before_filter :get_date_params, :only => [:show]
   def index
     @departments = current_user.division.departments
   end
@@ -9,8 +12,8 @@ class DepartmentsController < ApplicationController
     @id = @department.id
     @sort = params.permit :sort
 
-    @department.tasks.pluck(:project_id).uniq.select { |x| x }.each do |p_id|
-      @projects[Project.find(p_id).name] = @department.tasks.where(project_id: p_id).inject(0)  {|acc, x| acc + x.number_of_hours}
+    filter_tasks_by_date_params(@department.tasks).collect {|t| t.project_id}.uniq.select { |x| x }.each do |p_id|
+      @projects[Project.find(p_id).name] = @department.tasks.select {|t| t.project_id == p_id}.inject(0)  {|acc, x| acc + x.number_of_hours}
     end
 
     if @sort[:sort]
