@@ -26,6 +26,7 @@
   <ul class="dropdown-menu">
 	<% if current_user.roles_mask < 16 %>
 		<%= link_to "Angajati", :user_report_index %>
+        <%= link_to "Proiecte", :search_project_report_index %>
 	<% end %>
 	<% if current_user.roles_mask < 8 %>
 		<%= link_to "Proiecte in desfasurare", :project_report_index %>

@@ -1,7 +1,12 @@
 <%= render :partial => 'layouts/menu' %>
-
-<%= link_to "Proiect Nou", :new_project %>
-<%= link_to "Raport Proiecte", :project_report_index %>
+<% if @search %>
+    <%= form_tag(:search_project_report_index, :method => 'get') do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Cautare", :name => nil %>
+    <% end %>
+<% else %>
+    <%= link_to "Proiect Nou", :new_project %>
+<% end %>
 <table>
    <tr>
       <th>ID</th>
@@ -15,9 +20,12 @@
 	 <td><%= p.id %></td>
 	 <td><%= p.name %></td>
 	 <td><%= p.client.name %></td>
-	 <td><%= link_to 'Editare', edit_project_path(p.id) %></td>
-	 <td><%= link_to 'Sterge', { action: :destroy, id: p.id }, method: :delete, data: { confirm: 'Esti sigur?' } %></td>
-      <td><%= link_to 'Raport', project_report_path(p.id) %></td>
+     <% if @search %>
+          <td><%= link_to 'Raport', project_report_path(p.id) %></td>
+     <% else %>
+         <td><%= link_to 'Editare', edit_project_path(p.id) %></td>
+         <td><%= link_to 'Sterge', { action: :destroy, id: p.id }, method: :delete, data: { confirm: 'Esti sigur?' } %></td>
+     <% end %>
 	</tr>
       <% end %>   
 </table>

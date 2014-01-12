@@ -14,6 +14,8 @@
      <% if t.project %>
          <td><%= t.project.name %></td>
          <td><%= t.project.client.name %></td>
+	 <% else %>
+		<td></td><td></td>
      <% end %>
 	 <td><%= t.number_of_hours %></td>
 	 <% if @ds.monthly_sheet.user == current_user %>

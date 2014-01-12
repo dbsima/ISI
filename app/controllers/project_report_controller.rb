@@ -16,6 +16,30 @@ class ProjectReportController < ApplicationController
     end
   end
 
+  def search
+    begin
+      search_string = params.require :search
+    rescue ActionController::ParameterMissing
+      search_string = '.*'
+    end
+    p search_string
+    @search = true
+    @projects = []
+    #current_user.department.tasks.pluck(:project_id).uniq.select { |x| x }.each do |p_id|
+    #@projects = Project.all
+    Project.all.each do |p|
+      #p = Project.find(p_id)
+      p p
+      if Regexp.new(search_string).match p.name
+        p 'a intrat'
+        @projects << p
+      end
+    end
+    p @projects
+
+    render 'projects/index'
+  end
+
   def index
     #begin
     #  pars = params.require(:report_date).permit :date_start, :date_finish

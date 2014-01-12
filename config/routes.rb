@@ -55,7 +55,11 @@ TimesheetManagement::Application.routes.draw do
   resources :employees
 
   resources :user_report
-  resources :project_report
+  resources :project_report do
+    collection do
+      get 'search'
+    end
+  end
   resources :departments
   resources :clients_report
 

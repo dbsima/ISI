@@ -1,5 +1,29 @@
 <%= render :partial => 'layouts/menu' %>
 
+<table style="border-bottom:15px solid #69BC9C">
+  <tr>
+    <td style="width:500px;height:100px" valign="top">
+      <table width=100%>
+        <tr>
+          <td>
+            <div class="new">  Data Start: <%= date_select :report_date, 'date_start', selected: @date_start %></br></br>
+  Data Sfarsit: <%= date_select :report_date, 'date_finish', selected: @date_finish %>
+</td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table style="width:600px;height:100px;background-color:#69BC9C" align="center">
+        <tr>
+          <td  align="center">
+            <span class="glyphicon glyphicon-eye-open"></span>
+            <br>
+			<%= submit_tag 'Afisare', :class => 'btn', :style => 'margin-right: 10px;' %>
+</tr>
+      </table>
+    </td>
+  </tr>
+</table> 
 <script>
 
     var chart;
@@ -40,5 +64,14 @@
 
 
 <% 0.upto n do |i| %>
+	  <table style="border-bottom:5px solid #34495E;width:100%">
+	<tr>
+	<td>
+    <h2><%= @clients.keys[i] %></h2>
+	<div style="height:5px;width:100%;background-color:#69BC9C"></div>
+	</td></tr>
+	<tr><td>
     <div id="chartdiv<%= i %>" style="width: 100%; height: 362px;"></div>
+	</td></tr>
+	</table>
 <% end %>
