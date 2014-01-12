@@ -20,7 +20,7 @@ var legend;
     <% n += 1 %>
 <% end %>
 
-<% 0.upto n do |i| %>
+<% 0.upto n - 1 do |i| %>
     AmCharts.ready(function () {
     // PIE CHART
     chart = new AmCharts.AmPieChart();
@@ -31,6 +31,44 @@ var legend;
     chart.outlineAlpha = 0.8;
     chart.outlineThickness = 2;
     chart.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>";
+        exportConfig = {
+            menuTop: 'auto',
+            menuLeft: 'auto',
+            menuRight: '0px',
+            menuBottom: '0px',
+            menuItems: [{
+                textAlign: 'center',
+                onclick: function () {},
+                icon: '../amcharts/images/export.png',
+                iconTitle: 'Save chart as an image',
+                items: [{
+                    title: 'JPG',
+                    format: 'jpg'
+                }, {
+                    title: 'PNG',
+                    format: 'png'
+                }, {
+                    title: 'SVG',
+                    format: 'svg'
+                }]
+            }],
+            menuItemStyle: {
+                backgroundColor: 'transparent',
+                rollOverBackgroundColor: '#EFEFEF',
+                color: '#000000',
+                rollOverColor: '#CC0000',
+                paddingTop: '6px',
+                paddingRight: '6px',
+                paddingBottom: '6px',
+                paddingLeft: '6px',
+                marginTop: '0px',
+                marginRight: '0px',
+                marginBottom: '0px',
+                marginLeft: '0px',
+                textAlign: 'left',
+                textDecoration: 'none'
+            }
+        };
 
     // WRITE
     chart.write("chartdiv<%= i %>");
@@ -103,4 +141,4 @@ Data Sfarsit: <%= date_select :report_date, 'date_finish', selected: @date_finis
 </table>              
 <% end %>
 </div>
-
+<span class="glyphicon glyphicon-download" style="background-color:#69BC9C;display:block">Descarca</span>

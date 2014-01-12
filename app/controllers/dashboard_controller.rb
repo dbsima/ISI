@@ -21,8 +21,13 @@ class DashboardController < ApplicationController
     ms = MonthlySheet.find id.to_i
     ms.status = 'trimis'
     ms.save
-    TimesheetMailer.submit(ms).deliver
-    redirect_to :back, :alert => 'Pontaj lunar trimis spre aprobare!'
+    begin
+      TimesheetMailer.submit(ms).deliver
+      alert = 'Pontaj lunar trimis spre aprobare!'
+    rescue
+      alert = 'Eroare la trimitere email'
+    end
+    redirect_to :back, :alert => alert
   end
   
   def reopen

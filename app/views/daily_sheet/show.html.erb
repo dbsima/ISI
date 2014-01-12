@@ -1,5 +1,29 @@
 <%= render :partial => 'layouts/menu' %>
 
+<table style="border-bottom:solid 5px #69BC9C">
+  <tr>
+    <td style="width:700px;height:100px" align="center">
+      <table width=100%>
+        <tr>
+          <td align="center">
+            <div class="new">
 Data: <%= @ds.date %>
+</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table style="width:400px;height:100px;background-color:#ECEEF0" align="center">
+        <tr>
+          <td  align="center">
+            <span class="glyphicon glyphicon-plus-sign"></span>
+            <br>
 <%= link_to 'New Task', new_daily_sheet_path(:daily_sheet => @ds.id) if @ds.monthly_sheet.user == current_user %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>         
 <%= render :partial => 'table' %>
